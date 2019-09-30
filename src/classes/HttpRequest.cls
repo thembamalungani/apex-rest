@@ -10,48 +10,48 @@ public virtual class HttpRequest {
      *
      * @param String method
      */ 
-    protected final String method  { get; }
+    public final String method  { private set; }
 
     /**
      * The response headers
      *
      * @param Map<String, String>
      */ 
-    protected final Map<String, String> headers  { get; }
+    public final Map<String, String> headers  { private set; }
 
     /**
      * The request body
      * 
-     * @param String body
+     * @param Blob body
      */ 
-    protected final String body  { get; }
+    public final Blob body  { private set; }
 
     /**
      * The request requestUri
      * 
      * @param String requestUri
      */ 
-    protected final String requestUri  { get; }
+    public final String requestUri  { private set; }
     
     /**
      * The request remoteAddress
      * 
      * @param String remoteAddress
      */ 
-    protected final String remoteAddress { get; }
+    public final String remoteAddress { private set; }
 
     /**
      * The request params
      * 
      * @param Map<String, String> params
      */
-    protected final Map<String, String> params  { get; }
+    public final Map<String, String> params  { private set; }
 
     /**
      * The resource path
      * 
      */
-    protected public String resourcePath  { get; }
+    public final String resourcePath  { private set; }
 
     /**
      * Default constructor
