@@ -6,7 +6,7 @@
 
 This is a simple Apex inbound rest api. Takes care of the low level details of defining logging, request sanitisation and allows you to focus on the details of your application.
 
-Usage
+# Usage
 
 ## 1. Define a Http Request method handler class which extends BaseHttpMethodHandler or implements 
 ```apex
@@ -30,6 +30,26 @@ public class OrdersCreateHandler extends BaseHttpMethodHandler {
                     .setCode(200)
                     .setData('test data')
                     .setHeader('Context-Type', 'application/json');
+    }
+
+    /**
+     * Called when the request is done processing
+     *
+     * @param HttpRequest request
+     * @param HttpResponse response
+     */
+    public override void complete(HttpRequest request, HttpResponse response) {
+      // Do something when request is done
+    }
+
+    /**
+     * Called when the request failed processing
+     *
+     * @param HttpRequest request
+     * @param HttpResponse response
+     */
+    public override void fail(HttpRequest request, HttpResponse response) {
+      // Do something when request fail
     }
 }
 ```
@@ -60,7 +80,7 @@ global with sharing class OrdersEndpoint_v1 {
  }
 ```
 
-## 5. The handler chain
+## 5. The handle flow
 The request is handled by following the chain below:
 ```
 Rest Resource -> Request Dispatcher -> Request Pre-processor ->  Method Handler -> Response Context Setter -> Rest Resource
