@@ -39,6 +39,6 @@ public class HttpRequest {
      */
     public static HttpRequest fromContext(RestRequest request) {
 
-        return new RestRequest();
+        return new HttpRequest();
     }
 }
